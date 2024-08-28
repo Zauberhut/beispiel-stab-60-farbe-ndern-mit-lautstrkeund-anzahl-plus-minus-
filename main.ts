@@ -4,7 +4,10 @@ input.onSound(DetectedSound.Loud, function () {
 input.onButtonPressed(Button.A, function () {
     Anzahl += -1
 })
-function Farbe_umwandeln_in_RotGruenBlau (Farbe: number) {
+input.onButtonPressed(Button.B, function () {
+    Anzahl += 1
+})
+function Farbe_umwandeln_RotGruenBlau (Farbe: number) {
     if (Farbe == 0) {
         blau = 200
         grün = 0
@@ -31,9 +34,6 @@ function Farbe_umwandeln_in_RotGruenBlau (Farbe: number) {
         rot = 0
     }
 }
-input.onButtonPressed(Button.B, function () {
-    Anzahl += 1
-})
 let rot = 0
 let grün = 0
 let blau = 0
@@ -45,7 +45,7 @@ basic.forever(function () {
     if (Farbe > 4) {
         Farbe = 0
     }
-    Farbe_umwandeln_in_RotGruenBlau(Farbe)
+    Farbe_umwandeln_RotGruenBlau(Farbe)
     strip.setPixelColorRange(0, informatiktheater.rgb(rot, grün, blau), Anzahl)
     strip.show()
 })
